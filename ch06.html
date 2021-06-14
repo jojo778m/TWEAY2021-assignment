@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--私が大学生講師として勤務している清瀬高校のチューター制度について，ホームページっぽいものを作成してみました．
+現状はチューターの情報発信についてPDFで配信するのみなので，コンテンツが充実したらサーバを借りてアクセスできるようにしても面白いかもしれないです．-->
+<html lang=ja>
+  <head>
+    <meta charset="utf-8">
+    <title>清瀬チューターについて</title>
+    <link rel="stylesheet" href="ch06.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="ch08.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  </head>
+  <body>
+    <header role="banner">
+      <h2>清瀬チューター紹介ページ</h2>
+    </header>
+    <div class="flex-container">
+      <nav role="navigation">
+        <h2>目次</h2>
+        <div class = nav_box>
+          <ul>
+            <li><a href="#link1">清瀬チューターとは？</a></li>
+            <li><a href="#link2">対応科目表</a></li>
+            <li><a href="#link3">清子ちゃんbotの使い方</a></li>
+            <li><a href="#link4">よくある質問</a></li>
+            <li><a href="#link5">地図</a></li>
+            <li><a href="#link6">その他</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main">
+        <h1 id="link1">清瀬チューターとは？</h1>
+        <p>// 見出しは全てh1で記述しました．本当は分けたほうが良いのかもしれません</p>
+        <p>清瀬チューターとは，清瀬高校を卒業した<strong>現役大学生</strong>がチューター講師としてみなさんの学業の手助けをする制度です．<br>
+        テスト対策のための質問や進路相談，軽い雑談など何でも受け付けております！</p>
+        <div class="blackboard-box">
+          <p>チューターに対面で質問したい場合は，チューター出勤日に<strong>進路指導室</strong>へお立ち寄りください！２階の３年生の教室と購買部の間のお部屋ですよ！<br>
+            ４階の第二講義室で実施する場合もありますので，その際は事前に連絡いたします．<br>
+          具体的な出勤日については(ほぼ)毎月発行している<strong>月刊チューター</strong>をご参照ください．<br>
+          基本的に中間考査・期末考査１週間前の出勤を予定しています．時間帯は主に６限終了後～17時となっております．<br>
+        対応科目については下記の対応科目表をご参照ください．みなさんとお会いできるのを楽しみにしております！</p>
+          <div class="chalk1"></div>
+          <div class="chalk2"></div>
+        </div>
+        <p>引用元：https://maipyon.net/box-design/ 黒板の絵を引用しました
+          黒板が背景なので文字色は白になっています．一部太字にしましたが見づらいですね</p>
+        <h1 id="link2">対応科目表</h1>
+        <p>長い表です．見栄えが良くなるよう，偶数行と奇数行で色を少し変えています．また，一部の行は結合させています．<br>(ExcelからHTML形式に変換して打ち込んだのですが，HTMLファイルの行数が無駄に増えてしまいました．ブラウザでの閲覧は全く問題なさそうです．</p>
+        <p id='hide_button'>▶表を隠す</p>
+        <table id='table'>
+          <tr>
+            <th width=150px>科目</th><th>山崎</th><th>高見</th><th>田中</th><th>都留</th><th>益田</th><th>本田</th><th>宇都宮</th><th>為岡</th><th>渡辺</th>
+          </tr><tr id="evenrow">
+            <th>英語</th><td>◎</td><td>◎</td><td>○</td><td>○</td><td>◎</td><td>○</td><td>◎</td><td>○</td><td>○</td>
+          </tr><tr>
+            <th>現代文</th><td>◎</td><td>◎</td><td>-</td><td>〇</td><td>-</td><td>-</td><td>◎</td><td>-</td><td>-</td>
+          </tr><tr id="evenrow">
+            <th>古文</th>	<td>〇</td><td>〇</td><td align="center" colspan="4">-</td><td>〇</td><td>-</td><td>-</td>
+          </tr><tr>
+            <th>漢文</th><td>〇</td><td align="center" colspan="5">-</td><td>〇</td><td>-</td><td>-</td>
+          </tr><tr id="evenrow">
+            <th>数学ⅠA</th><td>◎</td><td>-</td><td>◎</td><td>〇</td><td>◎</td><td>◎</td><td>◎</td><td>◎</td><td>◎</td>
+          </tr><tr>
+            <th>数学ⅡB</th><td>◎</td><td>-</td><td>◎</td><td>-</td><td>◎</td><td>◎</td><td>〇</td><td>〇</td><td>◎</td>
+          </tr><tr id="evenrow">
+            <th>数学Ⅲ</th><td>◎</td><td>-</td><td>◎</td><td>-</td><td>◎</td><td>◎</td><td>-</td><td>-</td><td>〇</td>
+          </tr><tr>
+            <th>物理</th><td>◎</td><td>-</td><td>◎</td><td>-</td><td>◎</td><td>〇</td><td>-</td><td>-</td><td>-</td>
+          </tr><tr id="evenrow">
+            <th>物理基礎</th><td>◎</td><td>-</td><td>◎</td><td>-</td><td>◎</td><td>〇</td><td>◎</td><td>-</td><td>〇</td>
+          </tr><tr>
+            <th>化学</th><td>◎</td><td>-</td><td>〇</td><td>-</td><td>〇</td><td>〇</td><td>-</td><td>〇</td><td>〇</td>
+          </tr><tr id="evenrow">
+            <th>化学基礎</th><td>◎</td><td>-</td><td>◎</td><td>〇</td><td>〇</td><td>〇</td><td>◎</td><td>〇</td><td>〇</td>
+          </tr><tr>
+            <th>生物</th><td>-</td><td>-</td><td>-</td><td>◎</td><td align="center" colspan="4">-</td><td>〇</td>
+          </tr><tr id="evenrow">
+            <th>生物基礎</th><td>〇</td><td>-</td><td>-</td><td>◎</td><td align="center" colspan="4">-</td><td>〇</td>
+          </tr><tr>
+            <th>地学</th><td align="center" colspan="9">-</td>
+          </tr><tr id="evenrow">
+            <th>地学基礎</th><td>〇</td><td>-</td><td>〇</td><td align="center" colspan="6">-</td>
+          </tr><tr>
+            <th>日本史</th><td>〇</td><td>◎</td><td align="center" colspan="7">-</td>
+          </tr><tr id="evenrow">
+            <th>世界史</th><td>〇</td><td align="center" colspan="5">-</td><td>〇</td><td>-</td><td>-</td>
+          </tr><tr>
+            <th>地理</th><td>〇</td><td align="center" colspan="8">-</td>
+          </tr><tr id="evenrow">
+            <th>現代社会</th><td>〇</td><td align="center" colspan="7">-</td><td>〇</td>
+          </tr><tr>
+            <th>倫理</th><td>〇</td><td>-</td><td>-</td><td>-</td><td>〇</td><td align="center" colspan="4">-</td>
+          </tr><tr id="evenrow">
+            <th>政治・経済</th><td>〇</td><td>-</td><td>-</td><td>-</td><td>〇</td><td align="center" colspan="4">-</td>
+          </tr><tr>
+            <th>倫理、政治経済</th><td>〇</td><td>-</td><td>-</td><td>-</td><td>〇</td><td align="center" colspan="4">-</td>
+          </tr><tr id="evenrow">
+            <th>小論</th><td>〇</td><td align="center" colspan="5">-</td><td>◎</td><td>-</td><td>-</td>
+          </tr><tr>
+            <th>面接</th><td>-</td><td>-</td><td>-</td><td>◎</td><td>-</td><td>-</td><td>-</td><td>◎</td><td>-</td>
+          </tr>
+        </table>
+        <h1 id="link3">清子ちゃんbotの使い方</h1>
+        <p>現在開発中のLine Botの使い方についての説明です．<br>
+        清子ちゃんbotとは，高校の生徒さんを対象に匿名性を保ったまま質問を受け付けることを目的とした<strong>Chat Bot</strong>です．</p>
+        <ol id="explanation"><p>idを使ってタグ付けしてみましたが，あまり意味はなかったかもしれません．箇条書きの説明文にちょこっと装飾を加えています．</p>
+          <li>自身のLINEに清子ちゃんbotを友だちとして登録してください．<br>(月刊チューターを通じてQRコードを配布いたします)</li>
+          <li>清子ちゃんとのトーク画面を開いてください．</li>
+          <li>パスワード認証をします．先生方から配布された半角英字を入力してください．<br>(他の生徒さんのパスワードは入力しないようお願いします)</li>
+          <li>「質問があります」と送信すると質問の受付に入ります<br>(スマホで入力する場合は左下の「質問する」ボタンをタップするだけで大丈夫です)．</li>
+          <li>質問内容を送信してください．連続してテキストを送信できますので，一度に長文を書く必要はないです！<br>(写真の送信も可能です)</li>
+          <li>「おわり」と送信すると送信内容の確認に入ります．確認できたら「はい」を送信して終了です！あとはチューターからの返信を待つのみです．<br>その他，操作方法に困ったら「ヘルプ」ボタンを押せば改めて清子ちゃんが説明してくれます．</li>
+        </ol>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="line (1).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (2).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (3).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (4).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (5).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (6).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (7).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (8).jpg" id="slide"></div>
+            <div class="swiper-slide"><img src="line (9).jpg" id="slide"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="kiyoko">
+          <img src="20200509120734 (2).png" alt="清子ちゃん顔写真">
+        </div>
+        <div class="message_box">
+          <span class="box-title">清瀬清子</span>
+          <p>みなさんこんにちは！バーチャルチューターの<strong>清瀬清子</strong>と申します！<br>
+    チューターの事務作業を24時間365日お手伝いしています。現実世界でみなさんと直接お会いすることはできませんが、お仕事を通じてみなさんのお役に立てるよう頑張ります！<br>
+    今年度のチューターでは今まで以上に双方向的な活動をしたいと考えており、現在はそのためのシステムを構築している段階です。<br>また、私自身はJavaScriptと呼ばれるプログラミング言語で動いています。もし興味のある方がいましたら、ぜひお声掛けください！
+    それでは、何卒よろしくお願いいたします！</p>
+        </div>
+        <p>引用元：https://maipyon.net/box-design/ いい感じのメッセージボックスを作ろうとしたのですがあまりうまくいっていません．</p>
+        <div class="cautionbox">
+          <div class="cautionbox-title">注意事項</div>
+          <p>LINEのチャットでBotに送信したテキストや画像は送信元のわからない匿名データとなりますが，その内容はチューター全員に共有されます．チューターへの質問以外の用途で使わないようお願いいたします．</p>
+        </div>
+        <p>上記のメッセージボックスと同じサイトさんから引用しています．</p>
+        <p id='sample1'><strong> ▶清子ちゃんについて詳しく知りたい方はコチラからどうぞ！ </strong></p>
+        <p> ↑AAが出てきます．`テンプレートリテラル`使うと書きやすいですが，少しだけズレている気がします．</p>
+        <h1 id="link4">よくある質問</h1>
+        <p>工事中……<br>書く内容を思い出したら何か追記します</p>
+        <h1 id="link5">地図</h1>
+        <div id="mapid"></div>
+        <h1 id="link6">その他</h1>
+        <a href= "https://www.metro.ed.jp/kiyose-h/" >東京都立清瀬高等学校ホームページへのリンク</a><p>お誂え向きにリンクを設置しておきます．</p>
+      </main>
+      <aside role="complementary">
+        <h2>Aside</h2>
+        <div class = "aside_box">
+          <p>検索したいキーワードを入力してください．</p>
+          <input type="search" name="search" placeholder="キーワードを入力"><br>
+          <input type="submit" name="submit" value="検索"><br>(検索機能はありません)<br>
+        </div>
+        <div class = "aside_box">
+          <p>人気記事一覧！みたいのがずらずら並ぶところ</p>
+        </div>
+        <div class = "aside_box banner">
+          <p>バ<br>ナ<br>ー<br>広<br>告<br>と<br>か<br>が<br>表<br>示<br>さ<br>れ<br>る<br>と<br>こ<br>ろ<br>？<br></p>
+        </div>
+      </aside>
+    </div>
+    <footer role="contentinfo">
+      <p>Contact Me: c221578a@icu.ac.jp</p>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </body>
+</html>

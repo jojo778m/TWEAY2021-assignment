@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>時計とタイマー</title>
+    <link rel="stylesheet" href="ch11.css">
+    <script src="ch11.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <h2>時計</h2>
+    </header>
+    <div class="flex-container">
+      <nav role="navigation">
+        <h2>目次</h2>
+        <div class = nav_box>
+          <ul>
+            <li><a href="#link1">時計</a></li>
+            <li><a href="#link2">タイマー</a></li>
+            <li><a href="#link3">減算タイマー</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main">
+    <h1 id="link1">時計</h1>
+    <p>
+      <input type = "text" size = "100" id = "clock">
+    </p>
+    <h1 id="link2">タイマー</h1>
+    <div class = "box1">
+      <span id="etime" style = "font-size: 4m; color: #000000;"></span>
+      <p>１秒毎の更新だとスピード感がなかったので，コンマ秒まで表示することにしました．ただし，10ミリ秒毎の更新になるので環境によっては負荷が重たいかもしれません．私のPC環境ではCPUではなくGPUに若干の負荷がかかっていました．<br>
+        秒が50~60の間はランダムに文字の色を変えています．10ミリ秒単位で変わりますが，意外とチカチカせず目に優しい感じです．</p>
+      <span>
+        <input type = "submit" value = "Restart" id = "restart"><br>
+      </span>
+    </div>
+    <h1 id="link3">減算タイマー</h1>
+    <div class = "box2">
+      <span id="dectime" style = "font-size: 4m; color: #000000;"></span>
+      <br>
+      <input type = "submit" value = "１分のタイマーを開始するで！このタイマーが終わるまでの間に，アフリカでは60秒が経過するんやで！" id = "1min"><br>
+      <input type = "submit" value = "３分のタイマーを開始するで！カップラーメンができるまで待っててな！" id = "3min"><br>
+      <input type = "submit" value = "５分のタイマーを開始するで！この世界が突如生まれるには十分な時間やな！" id = "5min"><br>
+      <input type = "submit" value = "10分のタイマーを開始するで！授業の休憩時間かな？" id = "10min"><br>
+      <input type = "submit" value = "１時間のタイマーを開始するで！１時間後までこのページ開きっぱなしにするん？" id = "1hour"><br>
+      <input type = "submit" value = "99時間のタイマーを開始するで！桃鉄かな？" id = "99hour">
+      <p>１分，３分，５分，10分，１時間，99時間から始まる減算タイマーです．残り10秒になると色が赤くなります．残り0秒で「終了！」の文字を出力し，インターバルタイマを消去します．
+        最初，インターバルタイマをローカル変数にしてしまったため無限ループとなってしまい，うっかりネットに公開していたら兵庫県警に逮捕されるところでした．<br>
+        ちなみにスタートボタンの表示も，一度押すとリスタート表記に，他のボタンを押すと元の表記に戻ります．このタイミングですでにインターバルタイマが稼働していた場合，一度消去してから再度起動しています．この処理を挟まないとこれまた兵庫県警案件です．</P>
+      </div>
+    </main>
+    <aside role="complementary">
+      <h2>Aside</h2>
+      <div class = aside_box>
+        <p>検索したいキーワードを入力してください．</p>
+        <input type="search" name="search" placeholder="キーワードを入力"><br>
+        <input type="submit" name="submit" value="検索"><br>(検索機能はありません)<br>
+      </div>
+      <div class = aside_box>
+        <p>人気記事一覧！みたいのがずらずら並ぶところ</p>
+      </div>
+      <div class = aside_box>
+        <p>バ<br>ナ<br>ー<br>広<br>告<br>と<br>か<br>が<br>表<br>示<br>さ<br>れ<br>る<br>と<br>こ<br>ろ<br>？<br></p>
+      </div>
+    </aside>
+  </div>
+  <footer role="contentinfo">
+    <p>Contact Me: c221578a@icu.ac.jp</p>
+  </footer>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js"></script>
+    <title>ホーム画面</title>
+  </head>
+  <body>
+    <header role="banner">
+      <h2>ほーむぺーじ</h2>
+    </header>
+    <div id="loading">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <div class="loading_message">
+        <h2>読込中です……しばらくお待ち下さい</h2>
+      </div>
+    </div>
+    <div class="flex-container">
+      <nav role="navigation">
+        <h2>目次</h2>
+        <div class = nav_box>
+          <ul>
+            <li><a href="#link1">What's This Page About?</a></li>
+            <li><a href="#link2">About Me</a></li>
+            <li><a href="#link3">授業用JavaScriptテスト</a></li>
+            <li><a href="#link4">授業課題5/18</a></li>
+            <li><a href="#link5">授業に関連して作ったものへのリンク</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main role="main">
+        <h1 id="link1">What's This Page About?</h1>
+        <p> 2021年春学期に履修したWeb工学特論で作成したHTMLページです．jsやcssで作った雑多な機能を直接，もしくはリンクする形で載せています．<br>
+        ロード画面はいろいろ調べて作りました(半分以上は引用ですが)．一瞬でロードが終わると悲しいので２秒待ってから消えるようにしていますが，何度も読み込むとイライラしてきます．</p>
+        <h1 id="link2">About Me</h1>
+        <img src="jojoicon.jpg" alt="アイコン" width=176px>
+        <ul id="explanation">
+          <li>ID：22</li>
+          <li>メジャー：情報科学</li>
+          <li>卒論のテーマ：視線推定を用いた自転車の追い越し場面における予測モデル精度の向上</li>
+          <li>普段使っている言語：Python</li>
+        </ul>
+        <div class="black_box">
+          <p>機械学習やデータサイエンス寄りの人なので，Webエンジニアに関するスキルや知識はこの授業を履修するまで皆無でした．<br>
+          HTML, CSS, PHP, MySQL全部初めて触った人です．jsはGAS(Google Apps Script)でLINE Botを開発したいと思い(詳しくは後述)，この４月から始めました．<br>
+          院試が終わって時間ができたら，この授業で学んだスキルを活かして面白いWebサービスを開発したいな～～と妄想しています．</p>
+        </div>
+        <h1 id="link3">授業用JavaScriptテスト</h1>
+        <p id='sample1'><strong> 工事中……！ </strong></p>
+        <p> ↑AAが出てきます．`テンプレートリテラル`使うと書きやすいですが，少しだけズレている気がします．</p>
+        <p id='sample2'><strong>クリックすると"Hello, world!"が出るよ！マウスオーバーで青くなるよ！</strong></p>
+        <p id='sample3'><strong>クリックすると時間が出るよ！マウスオーバーで赤くなるよ！</strong></p>
+        <p> ↑new Date()を使いました</p>
+        <p id='sample5'><strong>クリックすると円周率が出るよ！マウスオーバーで緑になるよ！</strong></p>
+        <p> ↑Math.PIを使いました</p>
+        <p id='sample6'><strong>マウスオーバーするごとにランダムで色が変わるよ！クリックするとRGBで色を教えてくれるよ！</strong></p>
+        <p id='sample7'><strong>クリックすると今日の運勢を教えてくれるよ！</strong></p>
+        <p> ↑Math.floorとMath.randomを使いました</p>
+        <h1 id="link4">授業課題5/18</h1>
+        <p><div class="sample3_code_box">function sample3(event){<br>
+          let node = document.getElementById('sample3');// サンプル3のIDを持つ要素をnodeに代入しておく<br>
+          let str = '';// 初期化として空白を代入しておく<br>
+          for(i = 0; i < 3; ++i)<br>
+          {// 普通のforループ．iが0から始まり，回るごとに++iで1つづつ増えていく．１，２と増えて，３になったタイミングで条件式 (i< 3)よりループを抜ける<br>
+            str += 'どうかな？';//ループ文はiが0から2まで回るため，最終的にstrに'どうかな？'が３回足される．<br>
+          }<br>
+      //	for(attribute in event) { str += ' ' + attribute + ': ' + event[attribute]; }<br>
+          let newNode = document.createElement('li');// 'li'(箇条書き)を持つ要素をnewNodeとして宣言<br>
+          let textNode = document.createTextNode(str);// 上のfor文で作成したstrをtextNodeとして宣言<br>
+          newNode.appendChild(textNode);// 上で宣言したnewNodeにtextNodeを子ノードとして追加する(これで箇条書き文の中に"どうかな？"３連発が追加される)<br>
+          node.appendChild(newNode);一番上で代入したサンプル3のIDを持つ要素に対し，一つ上のnewNodeを子ノードとして追加する(これで箇条書き文とテキストを実際に見ることができるようになる)<br>
+          }</div>
+        </p>
+        <div class="colorful_box">
+          <p>ここをクリックするとcssのrule setがclass名の書き換えによって切り替わるよ！</p>
+        </div>
+        <p>document.getElementsByClassNameが配列で取得されるというのにしばらく気づかずスタックしていました．たしかにElement<strong>s</strong>なので配列ですね．</p>
+        <h1 id="link5">授業に関連して作ったものへのリンク</h1>
+        <a href= "./ch06.html" >清瀬チューター紹介ページ</a><br>
+        <p>↑私が大学生講師として勤務している清瀬高校のチューター制度について，ホームページっぽいものを作成してみました．<br>
+        地図の挿入や図表の表示切り替えなどをやっています．</p>
+        <a href= "./ch11.html" >タイマー</a><br>
+        <p>現在時刻とタイマー，減算タイマーを表示してくれるサイトです．10ミリ秒単位で表示が切り替わるので，意外とPCへの負荷が大きいです．</p>
+        <a href= "http://localhost/form/index.php" >お問い合わせフォーム</a><br>
+        <p>お問い合わせをテキストで送信できるサイトです．入力後，確認画面で確定してからデータベースに送信しています．<br>
+          パスワードを知っている管理者は，パスワード認証後にお問い合わせ内容の一覧を見ることができます．認証が済んでいないと，URLを直接入力してもトップ画面にリダイレクトします．</p>
+      </main>
+      <aside role="complementary">
+        <h2>Aside</h2>
+        <div class = "aside_box">
+          <p>検索したいキーワードを入力してください．</p>
+          <input type="search" name="search" placeholder="キーワードを入力"><br>
+          <input type="submit" name="submit" value="検索"><br>(検索機能はありません)<br>
+        </div>
+        <div class = "aside_box">
+          <p>人気記事一覧！みたいのがずらずら並ぶところ</p>
+        </div>
+        <div class = "aside_box banner">
+          <p>バ<br>ナ<br>ー<br>広<br>告<br>と<br>か<br>が<br>表<br>示<br>さ<br>れ<br>る<br>と<br>こ<br>ろ<br>？<br></p>
+        </div>
+      </aside>
+    </div>
+    <footer role="contentinfo">
+      <p>Contact Me: c221578a@icu.ac.jp</p>
+    </footer>
+  </body>
+</html>

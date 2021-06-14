@@ -1,0 +1,67 @@
+h1 {
+  display: block;
+  padding-left: 30px;
+  color: #000000;
+  border-bottom: 2px solid #1e90ff;
+  border-left: 30px solid #1e90ff;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+input[type=text],
+input[type=password],
+textarea{
+  padding: 5px 10px;
+  font-size: 86%;
+  border: none;
+  border-radius: 3px;
+  background: #ddf0ff;
+}
+input[type=submit] {
+  margin-top: 10px;
+  padding: 5px 20px;
+  font-size: 100%;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 #2887d1;
+  background: #4eaaf1;
+}
+.fix{
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px 20px;
+  font-size: 100%;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 #C71585;
+  background: #FF66CC;
+}
+body {
+  background-color: #ffe4e1
+}
+p{
+  margin:20px 0;
+}
+textarea{
+  margin: auto;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-bottom: 3em;
+}
+.main_log{
+  padding:20px 30px;
+}
+
+.log_button{
+  width: 100%;
+}
+.contents_box{
+  margin: 1em 0;
+  padding: 1em 1em 0 1em;
+  border: 8px solid #a60;
+  box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
+}
